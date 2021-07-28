@@ -1,50 +1,30 @@
-import { useState } from "react";
-import { AddCategory } from "./components/AddCategory";
-import { GifGrid } from "./components/GifGrid";
+import React, { useState } from 'react'
+import { AddCategory } from './components/AddCategory';
+import { GifGrid } from './components/GifGrid';
+
+export const GifExpertApp = () => {
 
 
-const GifExpertApp = () =>{
+    const [categories, setCategories] = useState(['naruto']);
 
-    
 
-    const [categories, setCategories] = useState(["Naruto"]);
+    return (
+        <div>
+                <h2>Hola Mundo</h2>
 
-    /* const handleAdd = () => {
+        <AddCategory setCategories={setCategories}/>
 
-        let anime= "Re:Zero";
-        setCategories(categories.concat(anime));
-        console.log(categories);
+            <hr/>
 
-        setCategories([...categories,anime]);
+        
 
-        setCategories((e) => [...e, anime]); //la e es el estado anterior del estado
-    } */
-return(
-
-    <>
-
-    
-    <h2>soy un componente funcionando</h2>
-    
-    <AddCategory setCategories={setCategories}/>
-    <hr />
-    
             <ol>
-                    {
-                    categories.map( category => (
-                       <GifGrid 
-                       key={category}
-                       category={category}/>
-                    ))
-                    }
+                {
+                    categories.map(category => {
+                        return <GifGrid key={category} category={category}/>
+                    })
+                }
             </ol>
-
-    </>
-
-)
-
-
-
+        </div>
+    )
 }
-
-export default GifExpertApp ;
